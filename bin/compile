@@ -10,7 +10,7 @@ CACHE_DIR=$2
 ENV_DIR=$3
 
 if [[ ! -d "$CACHE_DIR/snappy" ]]; then
-    mkdir $CACHE_DIR/snappy
+    mkdir -p $CACHE_DIR/snappy
     cd snappy
     ./autogen.sh
     ./configure
