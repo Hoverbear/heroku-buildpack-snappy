@@ -17,4 +17,4 @@ if [[ ! -d "$CACHE_DIR/snappy" ]]; then
     make
 fi
 
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH;$CACHE_DIR/snappy"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$CACHE_DIR/snappy"
