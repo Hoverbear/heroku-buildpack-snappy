@@ -5,16 +5,29 @@ set -e
 set -o pipefail
 
 # Build related variables.
-BUILD_DIR=$1
-CACHE_DIR=$2
-ENV_DIR=$3
+BUILD_DIR=${1:-}
+CACHE_DIR=${2:-}
+ENV_DIR=${3:-}
+BUILDPACK_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
 
-if [[ ! -d "$CACHE_DIR/snappy" ]]; then
-    mkdir $CACHE_DIR/snappy
+if [[ ! -d "$BUILD_DIR/snappy-build" ]]; then
+    mkdir -p $CACHE_DIR
+    cd $CACHE_DIR
+    rm -rf snappy || true
+    git clone https://github.com/google/snappy
     cd snappy
     ./autogen.sh
-    ./configure
+    ./configure --prefix="$BUILD_DIR/snappy-build"
     make
+    make install
 fi
 
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH;$CACHE_DIR/snappy"
+# This is for other buildpacks.
+echo "export LD_LIBRARY_PATH=/app/snappy-build/lib" > $BUILDPACK_DIR/export
+echo "export LD_RUN_PATH=/app/snappy-build/lib" >> $BUILDPACK_DIR/export
+
+# This is for the final app.
+mkdir -p $BUILD_DIR/.profile.d/
+echo "export LD_LIBRARY_PATH=/app/snappy-build/lib" > $BUILD_DIR/.profile.d/snappy.sh
+echo "export LD_RUN_PATH=/app/snappy-build/lib" >> $BUILD_DIR/.profile.d/snappy.sh
+
