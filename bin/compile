@@ -21,4 +21,5 @@ if [[ ! -d "$CACHE_DIR/snappy" ]]; then
 fi
 
 export LD_LIBRARY_PATH="$CACHE_DIR/snappy-build/lib"
+export LD_RUN_PATH="$CACHE_DIR/snappy-build/lib"
 echo "LD_LIBRARY_PATH is now: $LD_LIBRARY_PATH"
