@@ -15,7 +15,7 @@ if [[ ! -d "$CACHE_DIR/snappy" ]]; then
     git clone https://github.com/google/snappy
     cd snappy
     ./autogen.sh
-    ./configure --prefix="$(pwd)/../snappy-build" --with-pic --disabled-shared
+    ./configure --prefix="$(pwd)/../snappy-build" --with-pic --enable-shared=no
     make
     make install
 fi
