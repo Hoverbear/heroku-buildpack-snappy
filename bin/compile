@@ -15,11 +15,7 @@ if [[ ! -d "$CACHE_DIR/snappy" ]]; then
     git clone https://github.com/google/snappy
     cd snappy
     ./autogen.sh
-    ./configure --prefix="$(pwd)/../snappy-build"
+    ./configure --prefix="$BUILD_DIR/snappy-build"
     make
     make install
 fi
-
-export LD_LIBRARY_PATH="$CACHE_DIR/snappy-build/lib"
-export LD_RUN_PATH="$CACHE_DIR/snappy-build/lib"
-echo "LD_LIBRARY_PATH is now: $LD_LIBRARY_PATH"
