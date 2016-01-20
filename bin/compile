@@ -20,7 +20,7 @@ if [[ ! -d "$CACHE_DIR/snappy" ]]; then
     make install
 fi
 
-echo > $BUILD_DIR/export <<<EOF
+echo > $BUILD_DIR/export <<EOF
 export LD_LIBRARY_PATH="$CACHE_DIR/snappy-build/lib"
 export LB_RUN_PATH="$CACHE_DIR/snappy-build/lib"
 EOF
