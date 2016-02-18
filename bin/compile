@@ -27,6 +27,8 @@ LB_RUN_PATH="/app/tmp/cache/snappy-build/lib"
 EOF
 
 echo "\$BUILDPACK_DIR is $BUILDPACK_DIR"
+echo "Contents of $BUILDPACK_DIR/export is:"
+cat $BUILDPACK_DIR/export
 
 # mkdir -p $BUILD_DIR/.profile.d
 # echo > $BUILD_DIR/path.sh <<EOF
