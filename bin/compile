@@ -5,7 +5,7 @@ set -e
 set -o pipefail
 
 # Build related variables.
-BUILDPACK_DIR=$(pwd)/../
+BUILDPACK_DIR=$(pwd)/../../
 BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
@@ -25,6 +25,8 @@ echo > $BUILDPACK_DIR/export <<EOF
 LD_LIBRARY_PATH="/app/tmp/cache/snappy-build/lib"
 LB_RUN_PATH="/app/tmp/cache/snappy-build/lib"
 EOF
+
+echo "\$BUILDPACK_DIR is $BUILDPACK_DIR"
 
 # mkdir -p $BUILD_DIR/.profile.d
 # echo > $BUILD_DIR/path.sh <<EOF
