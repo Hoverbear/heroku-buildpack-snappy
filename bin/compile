@@ -29,7 +29,7 @@ echo "\$BUILDPACK_DIR is $BUILDPACK_DIR"
 echo "Contents of $BUILDPACK_DIR/export is:"
 echo "$(cat $BUILDPACK_DIR/export)"
 
-echo "$(ls -la /app/tmp/cachce/snappy-build/)"
+echo "$(ls -la /app/tmp/cache/snappy-build/)"
 
 # mkdir -p $BUILD_DIR/.profile.d
 # echo > $BUILD_DIR/path.sh <<EOF
