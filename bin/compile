@@ -29,6 +29,8 @@ echo "\$BUILDPACK_DIR is $BUILDPACK_DIR"
 echo "Contents of $BUILDPACK_DIR/export is:"
 echo "$(cat $BUILDPACK_DIR/export)"
 
+echo "$(ls -la /app/tmp/cachce/snappy-build/)"
+
 # mkdir -p $BUILD_DIR/.profile.d
 # echo > $BUILD_DIR/path.sh <<EOF
 # export LD_LIBRARY_PATH="$CACHE_DIR/snappy-build/lib"
