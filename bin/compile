@@ -22,8 +22,8 @@ if [[ ! -d "$CACHE_DIR/snappy" ]]; then
 fi
 
 # Recreate if needed.
-echo "LD_LIBRARY_PATH=\"/app/tmp/cache/snappy-build/lib\"" > $BUILDPACK_DIR/export
-echo "LB_RUN_PATH=\"/app/tmp/cache/snappy-build/lib\"" >> $BUILDPACK_DIR/export
+echo "LD_LIBRARY_PATH=/app/tmp/cache/snappy-build/lib" > $BUILDPACK_DIR/export
+echo "LB_RUN_PATH=/app/tmp/cache/snappy-build/lib" >> $BUILDPACK_DIR/export
 
 echo "\$BUILDPACK_DIR is $BUILDPACK_DIR"
 echo "Contents of $BUILDPACK_DIR/export is:"
