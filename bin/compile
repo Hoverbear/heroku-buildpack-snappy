@@ -17,7 +17,7 @@ if [[ ! -d "$BUILD_DIR/snappy-build" ]]; then
     git clone https://github.com/google/snappy
     cd snappy
     ./autogen.sh
-    ./configure --prefix="$BUILD_DIR/snappy-build"
+    ./configure --prefix="/app/snappy-build"
     make
     make install
 fi
