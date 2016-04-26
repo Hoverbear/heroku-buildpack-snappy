@@ -18,14 +18,14 @@ if [[ ! -d "$BUILD_DIR/snappy-build" ]]; then
     git clone https://github.com/google/snappy
     cd snappy
     ./autogen.sh
-    ./configure --prefix="$BUILD_DIR/.profile.d/snappy-build"
+    ./configure --prefix="/app/.profile.d/snappy-build"
     make
     make install
 fi
 
 # This is for other buildpacks.
-echo "export LD_LIBRARY_PATH=$BUILD_DIR/.profile.d/snappy-build/lib" > $BUILDPACK_DIR/export
-echo "export LD_RUN_PATH=$BUID_DIR/.profile.d/snappy-build/lib" >> $BUILDPACK_DIR/export
+echo "export LD_LIBRARY_PATH=/app/.profile.d/snappy-build/lib" > $BUILDPACK_DIR/export
+echo "export LD_RUN_PATH=/app/.profile.d/snappy-build/lib" >> $BUILDPACK_DIR/export
 
 # This is for the final app.
 mkdir -p $BUILD_DIR/.profile.d/
