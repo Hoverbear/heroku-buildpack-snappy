@@ -33,5 +33,5 @@ echo "export LD_LIBRARY_PATH=/app/.profile.d/snappy-build/lib" > $BUILD_DIR/.pro
 echo "export LD_RUN_PATH=/app/.profile.d/snappy-build/lib" >> $BUILD_DIR/.profile.d/snappy.sh
 
 # Otherwise it gets overwritten.
-cp -r /app/snappy-build /app/.profile.d/snappy-build
+cp -r /app/snappy-build $BUILD_DIR/.profile.d/snappy-build
 
